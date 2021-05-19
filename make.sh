@@ -1,28 +1,23 @@
 cd lua5.3
-mkdir build
-cd build
-cmake ../CMakeLists.txt
-make
+cmake CMakeLists.txt
+make -j8
 
-cd ../../mysql
-mkdir build
-cd build
-cmake ../extra/CMakeLists.txt
-make
+cd ../mysql
+cmake CMakeLists.txt
+make -j8
 
-cd ../../redis
-mkdir build
-cmake ../CMakeLists.txt
-make
+cd ../redis
+cmake CMakeLists.txt
+make -j8
 
-cd ../../prptobuf
-mkdir build
-cmake ../cmake/CMakeLists.txt
-make
+cd ../protobuf/cmake
+cmake CMakeLists.txt
+make -j8
 
 cd ../../
 mkdir lib
-cp ./lua5.3/build/*.a ./
-cp ./mysql/build/*.a ./
-cp ./redis/build/*.a ./
-cp ./prptobuf/build/*.a ./
+cp ./lua5.3/libLua53.a ./lib
+cp ./mysql/extra/yassl/libyassl.a ./lib
+cp ./mysql/libmysql/libmysqlclient.a ./lib
+cp ./redis/libhiredis.a ./lib
+cp ./protobuf/cmake/libprotobuf.a ./lib
