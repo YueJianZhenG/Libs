@@ -1,18 +1,18 @@
 cd lua5.3
 cmake CMakeLists.txt
-make -j8
+make -j
 
 cd ../mysql
 cmake CMakeLists.txt
-make -j8
+make -j
 
 cd ../redis
 cmake CMakeLists.txt
-make -j8
+make -j
 
 cd ../protobuf/cmake
 cmake CMakeLists.txt
-make -j8
+make -j
 
 cd ../../
 mkdir lib
